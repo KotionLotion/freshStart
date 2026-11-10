@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Build my resume | Fresh Start Inc.</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="rB.css" />
+  <script src="../../script.js" defer></script>
+  <script src="rB.js" defer></script>
+</head>
+<body>
+
+  <div class="navbar-mount" data-component-url="../../components/navbar/navbar.html"></div>
+  <div data-component-url="../../components/accessibility/accessibility.html"></div>
+
+  <!-- Yellow hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-tools">
+        <button class="link" data-open="dlg-leave">← Back to home</button>
+        <button class="btn btn-outline" data-open="dlg-leave">Save and exit</button>
+      </div>
+      <p class="eyebrow">Job help for people with disabilities or a history of incarceration</p>
+      <h1>Build my resume</h1>
+      <p>One step at a time. You can save and come back later.</p>
+    </div>
+  </section>
+
+  <!-- Stepper -->
+  <nav class="wrap stepper" aria-label="Resume steps">
+    <button data-go="1"><b>01</b> Contact details</button>
+    <button data-go="2"><b>02</b> Disabilities &amp; support</button>
+    <button data-go="3"><b>03</b> Experience</button>
+    <button data-go="4"><b>04</b> Education</button>
+    <button data-go="5"><b>05</b> Skills</button>
+    <button data-go="6"><b>06</b> Review</button>
+  </nav>
+
+  <main id="main-content" class="wrap">
+
+    <!-- STEP 1: CONTACT -->
+    <section class="step" data-step="1">
+      <div class="sub card" id="contact">
+        <p class="eyebrow">Step 1 of 6</p>
+        <h2>Your contact details</h2>
+        <p>How can an employer contact you?</p>
+        
+
+        <div class="row">
+          <div class="field"><label for="firstName">First name</label><input id="firstName" placeholder="Alex" autocomplete="given-name"></div>
+          <div class="field"><label for="lastName">Last name</label><input id="lastName" placeholder="Morgan" autocomplete="family-name"></div>
+        </div>
+        <div class="field"><label for="jobType">Type of job you want (optional)</label><input id="jobType" placeholder="Customer service professional"></div>
+        <div class="field"><label for="email">Email address</label><input id="email" type="email" placeholder="alex.morgan@example.com" autocomplete="email"></div>
+        <div class="row">
+          <div class="field"><label for="phone">Phone number</label><input id="phone" type="tel" placeholder="+501 xxx-xxxx" autocomplete="tel"></div>
+          <div class="field"><label for="location">District and town</label><input id="location" placeholder="Cayo District, San Ignacio"></div>
+        </div>
+        <div class="field"><label for="website">Website or LinkedIn (optional)</label><input id="website" placeholder="linkedin.com/in/alex-morgan"></div>
+        <p class="hint">Your district and town are enough. No full address needed.</p>
+      </div>
+      <div class="actions">
+        <button class="link" data-open="dlg-leave">← Back to home</button>
+        <button class="btn btn-yellow" data-go="2">Next: Disabilities &amp; support →</button>
+      </div>
+    </section>
+
+    <!-- STEP 2: DISABILITIES & SUPPORT -->
+    <section class="step" data-step="2" hidden>
+      <div class="sub card" id="support">
+        <p class="eyebrow">Step 2 of 6 · Optional</p>
+        <h2>Disabilities and support</h2>
+        <p>Which apply to you? You can choose both, or skip this step.</p>
+        <p class="hint">Your choices will not appear on your resume.</p>
+
+        <label class="check"><input type="checkbox" id="incarcerated"> I have been incarcerated</label>
+        <label class="check"><input type="checkbox" id="hasDisability"> I have a disability</label>
+
+        <div id="disabilityTypes" class="field" hidden>
+          <label>Disability type (optional)</label>
+          <details class="dropdown">
+            <summary>Choose any that apply</summary>
+            <label class="check"><input type="checkbox" name="disType"> Physical or mobility disability</label>
+            <label class="check"><input type="checkbox" name="disType"> Blindness or low vision</label>
+            <label class="check"><input type="checkbox" name="disType"> Deafness or hearing loss</label>
+            <label class="check"><input type="checkbox" name="disType"> Learning, memory, or attention disability</label>
+            <label class="check"><input type="checkbox" name="disType"> Mental health condition</label>
+            <label class="check"><input type="checkbox" name="disType"> Another disability</label>
+          </details>
+        </div>
+
+        <div class="field">
+          <label for="support-text">What support would help you? (optional)</label>
+          <p class="hint">For example: a ramp, help with reading, or help returning to work.</p>
+          <textarea id="support-text" placeholder="Write here if you want to."></textarea>
+        </div>
+        <p class="hint">No diagnosis or details about your incarceration are needed.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-outline" data-go="1">← Back: Contact details</button>
+        <button class="btn btn-yellow" data-go="3">Next: Work experience →</button>
+      </div>
+      <p class="center"><button class="link" data-go="3">Skip this step →</button></p>
+    </section>
+
+    <!-- STEP 3: EXPERIENCE -->
+    <section class="step" data-step="3" hidden>
+      <div class="sub card" id="exp-choice">
+        <p class="eyebrow">Step 3 of 6 · Experience is optional</p>
+        <h2>Your experience counts</h2>
+        <p>Paid jobs, work while incarcerated, volunteering, caregiving, and personal projects all count.</p>
+        <div class="option">
+          <h3>I have experience to add</h3>
+          <p>Start with one thing you have done. It does not have to be a paid job.</p>
+          <button class="btn btn-yellow" data-show="exp-form">Add experience →</button>
+        </div>
+        <div class="option">
+          <h3>I have no experience yet</h3>
+          <p>That’s okay. You can build your resume from your education and skills.</p>
+          <button class="btn btn-outline" data-go="4">Continue to education →</button>
+        </div>
+        <p class="hint">You do not need to explain gaps in work.</p>
+      </div>
+
+      <div class="sub card" id="exp-form" hidden>
+        <p class="eyebrow">Step 3 of 6 · Add one experience</p>
+        <h2>Tell us what you did</h2>
+        <p>Paid and unpaid experience both count. Start with one role or activity.</p>
+        <div class="field"><label for="expRole">Your role or activity</label><input id="expRole" placeholder="For example: kitchen helper or family caregiver"></div>
+        <div class="field">
+          <label for="expWhere">Where did you do this? (optional)</label>
+          <input id="expWhere" placeholder="Organization, community group, or home">
+          <p class="hint">For work while incarcerated, a general description is enough.</p>
+        </div>
+        <div class="row">
+          <div class="field"><label for="expStart">Started (optional)</label><input id="expStart" placeholder="Month / year, if known"></div>
+          <div class="field"><label for="expEnd">Finished (optional)</label><input id="expEnd" placeholder="Month / year, if known"></div>
+        </div>
+        <label class="check"><input type="checkbox" id="expCurrent"> I still do this</label>
+        <div class="field">
+          <label for="expTasks">What tasks did you do?</label>
+          <p class="hint">For example: prepared meals, organized supplies, or cared for a family member.</p>
+          <textarea id="expTasks" placeholder="Write a few things you did."></textarea>
+        </div>
+        <p class="hint">No exact dates? Leave them blank. You do not need to explain gaps.</p>
+      </div>
+      <div class="sub" id="exp-form-actions" hidden>
+        <button class="btn btn-outline btn-wide" data-open="dlg-another">+ Save &amp; add another experience</button>
+        <div class="actions">
+          <button class="btn btn-outline" data-show="exp-choice">← Back: Experience</button>
+          <button class="btn btn-yellow" data-action="saveExperience" data-go="4">Save &amp; next: Education →</button>
+        </div>
+      </div>
+      <div class="actions" id="exp-choice-actions">
+        <button class="btn btn-outline" data-go="2">← Back: Disabilities &amp; support</button>
+      </div>
+    </section>
+
+    <!-- STEP 4: EDUCATION -->
+    <section class="step" data-step="4" hidden>
+      <div class="sub card" id="edu-choice">
+        <p class="eyebrow">Step 4 of 6 · Education is optional</p>
+        <h2>Learning at any level counts</h2>
+        <p>Primary school, unfinished schooling, adult classes, and job training all count. Learning while incarcerated counts too.</p>
+        <div class="option">
+          <h3>I have schooling or training to add</h3>
+          <p>Add one school, class, or program. You do not have to have finished it.</p>
+          <button class="btn btn-yellow" data-show="edu-form">Add education or training →</button>
+        </div>
+        <div class="option">
+          <h3>Nothing to add, or prefer not to share?</h3>
+          <p>No formal schooling? That’s okay. You can leave education off your resume and focus on your skills.</p>
+          <button class="btn btn-outline" data-action="clearEducation" data-go="5">Leave education off my resume</button>
+        </div>
+      </div>
+
+      <div class="sub card" id="edu-form" hidden>
+        <p class="eyebrow">Step 4 of 6 · Add one learning experience</p>
+        <h2>Add schooling or training</h2>
+        <p>Finished or not, it counts. Share only the details you know.</p>
+        <div class="field">
+          <label for="eduType">Type of learning</label>
+          <select id="eduType">
+            <option value="">Choose one</option>
+            <option>Primary school</option>
+            <option>High school</option>
+            <option>Adult class</option>
+            <option>Job training</option>
+            <option>Learning while incarcerated</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label for="eduClass">Class, course, or level (optional)</label><input id="eduClass" placeholder="For example: Standard 4, reading, or carpentry"></div>
+        <div class="field">
+          <label for="eduSchool">School or program name (optional)</label>
+          <input id="eduSchool" placeholder="Write the name if you know it">
+          <p class="hint">A general program name is fine. You do not need to name a prison.</p>
+        </div>
+        <div class="field">
+          <label for="eduDone">Did you finish? (optional)</label>
+          <select id="eduDone">
+            <option value="">Choose one</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Still learning</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="eduYear">Year attended (optional)</label>
+          <input id="eduYear" placeholder="For example: 2002">
+          <p class="hint">An approximate year is fine. Leave it blank if you do not know.</p>
+        </div>
+      </div>
+      <div class="sub" id="edu-form-actions" hidden>
+        <div class="actions">
+          <button class="btn btn-outline" data-show="edu-choice">← Back: Education</button>
+          <button class="btn btn-yellow" data-action="saveEducation" data-go="5">Next: Skills →</button>
+        </div>
+        <p class="center"><button class="link" data-action="clearEducation" data-go="5">Leave education off instead</button></p>
+      </div>
+      <div class="actions" id="edu-choice-actions">
+        <button class="btn btn-outline" data-go="3">← Back: Experience</button>
+        <button class="btn btn-yellow" data-go="5">Next: Skills →</button>
+      </div>
+    </section>
+
+    <!-- STEP 5: SKILLS -->
+    <section class="step" data-step="5" hidden>
+      <div class="sub card" id="skills">
+        <p class="eyebrow">Step 5 of 6 · Skills are optional</p>
+        <h2>What can you do?</h2>
+        <p>Skills can come from everyday life, caring for others, work, or training. Choose only what fits you.</p>
+        <div class="grid-2">
+          <label class="check"><input type="checkbox" name="skill" value="Working with others"> Working with others</label>
+          <label class="check"><input type="checkbox" name="skill" value="Helping others"> Helping others</label>
+          <label class="check"><input type="checkbox" name="skill" value="Staying organized"> Staying organized</label>
+          <label class="check"><input type="checkbox" name="skill" value="Solving problems"> Solving problems</label>
+          <label class="check"><input type="checkbox" name="skill" value="Preparing food"> Preparing food</label>
+          <label class="check"><input type="checkbox" name="skill" value="Cleaning"> Cleaning</label>
+          <label class="check"><input type="checkbox" name="skill" value="Using hand tools"> Using hand tools</label>
+          <label class="check"><input type="checkbox" name="skill" value="Using a computer"> Using a computer</label>
+        </div>
+        <div class="field">
+          <label for="otherSkills">Other skills (optional)</label>
+          <input id="otherSkills" placeholder="For example: sewing or speaking another language">
+          <p class="hint">Separate skills with a comma.</p>
+        </div>
+        <button class="btn btn-outline btn-wide" data-open="dlg-help">Not sure what to choose?</button>
+      </div>
+      <div class="actions">
+        <button class="btn btn-outline" data-go="4">← Back: Education</button>
+        <button class="btn btn-yellow" data-go="6">Next: Review →</button>
+      </div>
+      <p class="center"><button class="link" data-go="6">Skip skills for now →</button></p>
+    </section>
+
+    <!-- STEP 6: REVIEW + PREVIEW -->
+    <section class="step" data-step="6" hidden>
+      <div class="sub" id="review">
+        <div class="card">
+          <p class="eyebrow">Step 6 of 6 · Review</p>
+          <h2>Make sure it feels like you</h2>
+          <p>Check what you want to share. Use Edit to return to any section.</p>
+          <div id="reviewList"></div>
+          <p><strong>Your disability and support answers stay off your resume.</strong></p>
+        </div>
+        <div class="actions">
+          <button class="btn btn-outline" data-go="5">← Back: Skills</button>
+          <button class="btn btn-yellow" data-show="preview">Preview my resume →</button>
+        </div>
+      </div>
+
+      <div class="sub" id="preview" hidden>
+        <div class="card">
+          <p class="eyebrow">Resume preview</p>
+          <h2>Here is your resume preview</h2>
+          <p class="hint">Check it before sharing.</p>
+          <article class="paper" id="paper"></article>
+          <p class="hint">Disability and support answers are excluded. Downloading is simulated in this prototype.</p>
+        </div>
+        <div class="actions">
+          <button class="btn btn-outline" data-show="review">← Back: Review</button>
+          <button class="btn btn-yellow" data-open="dlg-download">Download resume</button>
+        </div>
+        <p class="center"><button class="link" data-open="dlg-leave">Back to Fresh Start</button></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Job help. One step at a time.</span>
+    <button class="link" data-open="dlg-help">Need help? Get resume help</button>
+  </footer>
+
+  <!-- DIALOGS -->
+  <dialog id="dlg-help">
+    <h2>Take it one step at a time</h2>
+    <p>Paid jobs are not the only experience that counts. Think about caring for someone, helping a group, learning a task, or solving everyday problems.</p>
+    <p>Choose only skills that fit you. You can skip optional questions and come back later.</p>
+    <button class="btn btn-yellow btn-wide" data-close>Back to my resume</button>
+    <button class="btn btn-outline btn-wide" data-action="home">Back to Fresh Start</button>
+  </dialog>
+
+  <dialog id="dlg-leave">
+    <h2>Leave the resume builder?</h2>
+    <p>Your selections stay while this preview is open. Typed answers are not stored in this prototype.</p>
+    <button class="btn btn-yellow btn-wide" data-close>Keep editing</button>
+
+    <button class="btn btn-outline btn-wide" data-action="home"> <a href="../../index.html">Back to start</a></button>
+  </dialog>
+
+  <dialog id="dlg-download">
+    <h2>Download preview</h2>
+    <p>This prototype shows where you would download your resume. It does not create a PDF or save a document.</p>
+    <button class="btn btn-yellow btn-wide" data-close>Back to my resume preview</button>
+    <button class="btn btn-outline btn-wide" data-action="home">Back to Fresh Start</button>
+  </dialog>
+
+  <dialog id="dlg-another">
+    <h2>Add another experience</h2>
+    <p>You can walk through another entry in this preview. Multiple entries are kept only while this page is open.</p>
+    <button class="btn btn-yellow btn-wide" data-action="saveExperience" data-close>Start another entry</button>
+    <button class="btn btn-outline btn-wide" data-close>Keep editing this entry</button>
+  </dialog>
+
+  </body>
+</html>

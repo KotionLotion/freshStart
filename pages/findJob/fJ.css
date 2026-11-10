@@ -1,0 +1,131 @@
+:root {
+  --yellow: #b90101b9;
+  --ink: #22241f;
+  --paper: #faf8f3;
+  --soft: #f6f4ee;
+  --white: #fff;
+  --line: #6b6b66;
+  --radius: 6px;
+  --gap: 1rem;
+  font-family: "Lexend", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.5; }
+h1, h2, h3, p, ul { margin: 0 0 var(--gap); }
+h1 { font-size: 2.4rem; line-height: 1.15; text-transform: uppercase; margin-bottom: .5rem; }
+h2 { font-size: 1.5rem; line-height: 1.25; }
+h3 { font-size: 1.15rem; margin-bottom: .4rem; }
+ul { padding: 0; list-style: none; }
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+[tabindex="-1"]:focus { outline: none; }
+
+/* Hero */
+.hero { background: var(--yellow); padding: 1.25rem 0 1.75rem; margin-bottom: 1.5rem; }
+.hero p:last-child { margin: 0; }
+.eyebrow { font-size: .8rem; font-weight: 600; letter-spacing: .03em; text-transform: uppercase; margin: 1.25rem 0 .5rem; }
+.lead { font-size: 1.15rem; font-weight: 600; margin-bottom: .25rem; }
+
+/* Links + buttons */
+.link { font: inherit; font-weight: 600; color: inherit; text-decoration: none; }
+.link:hover { text-decoration: underline; }
+.btn {
+  display: inline-block;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  padding: .75rem 1.1rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-yellow { background: var(--yellow); border-width: 2px; }
+.btn-outline:hover { background: var(--soft); }
+.btn-yellow:hover { filter: brightness(.96); }
+.btn-wide { width: 100%; }
+
+/* Layout: filters on the left, jobs on the right */
+.layout { display: grid; grid-template-columns: 330px 1fr; gap: 1.5rem; align-items: start; }
+.sidebar { position: sticky; top: 1rem; display: grid; gap: 1rem; }
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+.card .eyebrow { margin-top: 0; }
+.hint { font-size: .85rem; }
+
+/* Form bits */
+.field { margin-bottom: var(--gap); }
+.field label { display: block; font-weight: 600; margin-bottom: .4rem; }
+select {
+  width: 100%;
+  font: inherit;
+  font-size: .95rem;
+  color: var(--ink);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: .8rem .9rem;
+}
+.check {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  padding: .7rem .9rem;
+  cursor: pointer;
+}
+.check input { width: 1.3rem; height: 1.3rem; accent-color: var(--ink); flex: none; }
+.dropdown { border: 1px solid var(--line); border-radius: 4px; background: var(--white); margin-bottom: .5rem; }
+.dropdown summary { background: #fff5cc; padding: .8rem .9rem; cursor: pointer; }
+.field .dropdown + .hint { margin: 0; }
+
+/* Reassurance note */
+.note { background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 1.25rem; }
+.note p { font-size: .9rem; }
+.note .btn { width: 100%; }
+
+/* Results */
+.count { font-weight: 600; margin-bottom: .25rem; }
+.job { margin-bottom: var(--gap); }
+.job-head { display: flex; justify-content: space-between; align-items: baseline; gap: var(--gap); }
+.job-head h3 { font-size: 1.25rem; margin: 0; }
+.badge { background: var(--yellow); border-radius: 999px; padding: .15rem .7rem; font-size: .8rem; font-weight: 600; white-space: nowrap; }
+.meta { font-size: .9rem; margin: .4rem 0 .75rem; }
+.job-foot { display: flex; justify-content: space-between; align-items: center; gap: var(--gap); flex-wrap: wrap; }
+.job-foot .tags { margin: 0; }
+
+.tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.tags li { background: var(--soft); border: 1px solid var(--line); border-radius: 4px; padding: .2rem .6rem; font-size: .85rem; }
+
+/* Detail view */
+.detail { max-width: 760px; }
+.detail .card { margin-bottom: var(--gap); }
+.detail .tags li { font-size: 1rem; padding: .4rem .8rem; }
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap);
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding: 1rem 1.25rem 2rem;
+  font-size: .9rem;
+}
+
+@media (max-width: 800px) {
+  h1 { font-size: 1.9rem; }
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .job-head, .footer { flex-direction: column; }
+}

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find a job | Fresh Start Inc.</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="fJ.css" />
+  <script src="../../script.js" defer></script>
+  <script src="fJ.js" defer></script>
+</head>
+<body>
+  <div class="navbar-mount" data-component-url="../../components/navbar/navbar.html"></div>
+  <div data-component-url="../../components/accessibility/accessibility.html"></div>
+
+  <main id="main-content">
+
+    <!-- LIST VIEW: hero + filters + results -->
+    <div id="list-view">
+      <section class="hero">
+        <div class="wrap">
+          <a class="link" href="/index.html">← Back to home</a>
+          <p class="eyebrow">Your next chapter starts here</p>
+          <h1>Find a job that fits you.</h1>
+          <p class="lead">Your skills matter. Your access needs do too.</p>
+          <p>Explore opportunities and choose the workplace support that works for you.</p>
+        </div>
+      </section>
+
+      <div class="wrap layout">
+        <aside class="sidebar">
+          <section class="card" aria-labelledby="filter-title">
+            <p class="eyebrow">Make it yours</p>
+            <h2 id="filter-title">Choose a job type and the support you need.</h2>
+            <p class="hint">All filters are optional.</p>
+
+            <div class="field">
+              <label for="jobType">Job type</label>
+              <select id="jobType">
+                <option value="">All job types</option>
+                <option>Full time</option>
+                <option>Part time</option>
+                <option>Contract</option>
+                <option>Apprenticeship</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label id="needLabel">Accessibility &amp; support</label>
+              <details class="dropdown">
+                <summary id="needSummary" aria-labelledby="needLabel needSummary">Choose access needs</summary>
+                <label class="check"><input type="checkbox" name="need" value="Wheelchair access"> Wheelchair access</label>
+                <label class="check"><input type="checkbox" name="need" value="Elevator / lift"> Elevator / lift</label>
+                <label class="check"><input type="checkbox" name="need" value="Accessible toilets"> Accessible toilets</label>
+                <label class="check"><input type="checkbox" name="need" value="Quiet workspace"> Quiet workspace</label>
+                <label class="check"><input type="checkbox" name="need" value="Captions &amp; text support"> Captions &amp; text support</label>
+                <label class="check"><input type="checkbox" name="need" value="Flexible hours"> Flexible hours</label>
+              </details>
+              <p class="hint">Choose any combination. Results must offer all selected features.</p>
+            </div>
+
+            <button class="btn btn-yellow btn-wide" id="showJobs" type="button">Show matching jobs</button>
+          </section>
+
+          <section class="note">
+            <h3>Your needs stay yours.</h3>
+            <p>No diagnosis or disclosure required. Filter for support, not for a label.</p>
+            <p>Access information is supplied by employers. Confirm details before you visit or apply.</p>
+            <button class="btn btn-outline" id="clearFilters" type="button">Clear all filters</button>
+          </section>
+        </aside>
+
+        <section class="results" id="matches" aria-labelledby="results-title">
+          <p class="count" id="count" role="status" aria-live="polite"></p>
+          <h2 id="results-title" tabindex="-1">All opportunities</h2>
+          <div id="jobs"></div>
+          <div class="card" id="empty" hidden>
+            <h3>No jobs match all of these yet</h3>
+            <p>Try removing one filter, or clear them all to see every opportunity.</p>
+            <button class="btn btn-yellow" id="emptyClear" type="button">Clear all filters</button>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!-- DETAIL VIEW: filled in by findJob.js -->
+    <div id="detail-view" hidden></div>
+  </main>
+
+  <footer class="footer">
+    <span><strong>Fresh Start</strong> / Everyone deserves a fair chance.</span>
+    <span>Example opportunities · Prototype</span>
+  </footer>
+</body>
+</html>
