@@ -9,31 +9,50 @@
   <button class="accessibility-backdrop" type="button" aria-label="Close accessibility settings" hidden></button>
   <aside class="accessibility-panel" id="accessibility-panel" role="dialog" aria-modal="true" aria-labelledby="accessibility-title" aria-hidden="true">
     <div class="accessibility-panel__header">
-      <h2 id="accessibility-title">Accessibility</h2>
+      <h2 id="accessibility-title" data-i18n="accessibility">Accessibility</h2>
       <button class="accessibility-panel__close" type="button" aria-label="Close accessibility settings"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
     </div>
-    <p class="accessibility-panel__intro">Display settings are saved and applied across every page.</p>
+    <p class="accessibility-panel__intro" data-i18n="savedIntro">Display settings are saved and applied across every page.</p>
+
+    <label class="accessibility-field" for="accessibility-language">
+      <span data-i18n="language">Language</span>
+      <select id="accessibility-language" name="language">
+        <option value="en">English</option>
+      </select>
+    </label>
+
     <label class="accessibility-field" for="accessibility-text-size">
-      <span>Text size</span>
+      <span data-i18n="textSize">Text size</span>
       <select id="accessibility-text-size" name="text-size">
-        <option value="1">Default</option>
-        <option value="1.15">Larger</option>
-        <option value="1.3">Largest</option>
+        <option value="1" data-i18n-option="default">Default</option>
+        <option value="1.15" data-i18n-option="larger">Larger</option>
+        <option value="1.3" data-i18n-option="largest">Largest</option>
       </select>
     </label>
     <label class="accessibility-option" for="accessibility-high-contrast">
-      <span>High contrast</span>
+      <span data-i18n="highContrast">High contrast</span>
       <input id="accessibility-high-contrast" type="checkbox" />
     </label>
     <label class="accessibility-option" for="accessibility-readable-font">
-      <span>Readable font and spacing</span>
+      <span data-i18n="readableFont">Readable font and spacing</span>
       <input id="accessibility-readable-font" type="checkbox" />
     </label>
+    <label class="accessibility-option" for="accessibility-dyslexia-mode">
+      <span data-i18n="dyslexiaMode">Dyslexia-friendly mode</span>
+      <input id="accessibility-dyslexia-mode" type="checkbox" />
+    </label>
+    <label class="accessibility-option" for="accessibility-night-mode">
+      <span data-i18n="nightMode">Night mode</span>
+      <input id="accessibility-night-mode" type="checkbox" />
+    </label>
     <label class="accessibility-option" for="accessibility-underline-links">
-      <span>Underline links</span>
+      <span data-i18n="underlineLinks">Underline links and buttons</span>
       <input id="accessibility-underline-links" type="checkbox" />
     </label>
-    <button class="accessibility-reset" type="button">Reset settings</button>
+
+    <button class="accessibility-tts" type="button" data-i18n="readPage">Read page aloud</button>
+    <button class="accessibility-reset" type="button" data-i18n="resetSettings">Reset settings</button>
     <p class="accessibility-status" role="status" aria-live="polite"></p>
   </aside>
 </div>
+<div class="accessibility-toast" id="accessibility-toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>

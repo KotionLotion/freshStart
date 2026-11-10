@@ -26,7 +26,7 @@
         <h1 id="page-title">What do you need?</h1>
       </section>
 
-      <section class="navigation-section" aria-label="Fresh Start actions">
+      <section class="navigation-section" aria-label="Fresh Start actions" data-i18n-aria="freshStartActions">
         <div class="circle-navigation" id="circle-navigation">
           <a class="action action-resume" href="/pages/resumeBuilder/resumeBuilder.html" aria-label="Build my resume">
             <span class="action-content">
@@ -55,7 +55,7 @@
               </svg>
             </span>
           </a>
-          <a class="action action-applications" href="/pages/myApplications.html" aria-label="My submitted applications">
+          <a class="action action-applications" href="/pages/mySubmissions/mySubmissions.html" aria-label="My submitted applications">
             <span class="action-content">
               <i class="action-icon bi bi-clipboard-check" aria-hidden="true"></i>
               <svg class="action-label-curve" viewBox="0 0 100 100" aria-hidden="true">
@@ -67,15 +67,15 @@
         </div>
 
         <div class="list-navigation" id="list-navigation" hidden>
-          <a class="action-list action-resume" href="/pages/resumeBuilder.html"><i class="list-icon bi bi-person-vcard" aria-hidden="true"></i><span><strong>Build my resume</strong></span><span aria-hidden="true">→</span></a>
-          <a class="action-list action-find" href="/pages/findJob.html"><i class="list-icon bi bi-briefcase" aria-hidden="true"></i><span><strong>Find a job</strong></span><span aria-hidden="true">→</span></a>
-          <a class="action-list action-apply" href="/pages/applyJob.html"><i class="list-icon bi bi-send" aria-hidden="true"></i><span><strong>Apply for a job</strong></span><span aria-hidden="true">→</span></a>
-          <a class="action-list action-applications" href="/pages/myApplications.html"><i class="list-icon bi bi-clipboard-check" aria-hidden="true"></i><span><strong>My applications</strong></span><span aria-hidden="true">→</span></a>
+          <a class="action-list action-resume" href="/pages/resumeBuilder/resumeBuilder.html"><i class="list-icon bi bi-person-vcard" aria-hidden="true"></i><span><strong>Build my resume</strong></span><span aria-hidden="true">→</span></a>
+          <a class="action-list action-find" href="/pages/findJob/findJob.html"><i class="list-icon bi bi-briefcase" aria-hidden="true"></i><span><strong>Find a job</strong></span><span aria-hidden="true">→</span></a>
+          <a class="action-list action-apply" href="/pages/applyJob/applyJob.html"><i class="list-icon bi bi-send" aria-hidden="true"></i><span><strong>Apply for a job</strong></span><span aria-hidden="true">→</span></a>
+          <a class="action-list action-applications" href="/pages/mySubmissions/mySubmissions.html"><i class="list-icon bi bi-clipboard-check" aria-hidden="true"></i><span><strong>My applications</strong></span><span aria-hidden="true">→</span></a>
         </div>
 
         <button class="view-toggle" id="view-toggle" type="button" aria-pressed="false">
           <i class="view-toggle-icon bi bi-list-ul" aria-hidden="true"></i>
-          <span class="view-toggle-label">Browse as a list</span>
+          <span class="view-toggle-label" data-i18n="viewToggleList">Browse as a list</span>
         </button>
       </section>
     </main>

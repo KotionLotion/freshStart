@@ -75,9 +75,23 @@ html { font-size: calc(100% * var(--accessibility-text-scale, 1)); }
 .accessibility-field, .accessibility-option { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 56px; border-top: 1px solid #d8d1c6; font-weight: 700; }
 .accessibility-field select { min-height: 42px; padding: .4rem .5rem; border: 1px solid #6b625b; border-radius: 4px; background: white; color: #171717; font: inherit; }
 .accessibility-option input { width: 24px; height: 24px; accent-color: #3f2a67; }
-.accessibility-reset { width: 100%; min-height: 46px; margin-top: 1rem; border: 2px solid #3f2a67; border-radius: 5px; background: transparent; color: #3f2a67; font: inherit; font-weight: 800; cursor: pointer; }
-.accessibility-reset:hover { background: #3f2a67; color: #fffdf7; }
+.accessibility-tts, .accessibility-reset { width: 100%; min-height: 46px; margin-top: 1rem; border: 2px solid #3f2a67; border-radius: 5px; background: transparent; color: #3f2a67; font: inherit; font-weight: 800; cursor: pointer; }
+.accessibility-tts:hover, .accessibility-reset:hover { background: #3f2a67; color: #fffdf7; }
 .accessibility-status { min-height: 1.4em; color: #3f2a67; font-size: .9rem; }
+
+.accessibility-toast {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 60;
+  max-width: min(360px, calc(100vw - 2rem));
+  padding: .8rem 1rem;
+  background: #1c3d2d;
+  color: #fff;
+  border: 2px solid #0b0b0b;
+  box-shadow: 5px 5px 0 #0b0b0b;
+  font-weight: 700;
+}
 
 html[data-readable-font="true"] body,
 html[data-readable-font="true"] body :not(.bi) {
@@ -86,9 +100,95 @@ html[data-readable-font="true"] body :not(.bi) {
   line-height: 1.6;
 }
 
-html[data-underline-links="true"] body a {
+html[data-dyslexia="true"] body,
+html[data-dyslexia="true"] body * {
+  letter-spacing: .03em !important;
+  word-spacing: .08em !important;
+  font-family: "Arial", "Verdana", sans-serif !important;
+}
+
+html[data-night-mode="true"] body {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+html[data-night-mode="true"] body,
+html[data-night-mode="true"] body * {
+  box-shadow: none !important;
+}
+
+html[data-night-mode="true"] .site-navbar,
+html[data-night-mode="true"] .accessibility-panel,
+html[data-night-mode="true"] .accessibility-launcher,
+html[data-night-mode="true"] .card,
+html[data-night-mode="true"] .panel,
+html[data-night-mode="true"] .sub-panel,
+html[data-night-mode="true"] .detail-panel,
+html[data-night-mode="true"] .submission,
+html[data-night-mode="true"] .action-list,
+html[data-night-mode="true"] .note,
+html[data-night-mode="true"] .detail-hero,
+html[data-night-mode="true"] .summary-box,
+html[data-night-mode="true"] .notice,
+html[data-night-mode="true"] .hero,
+html[data-night-mode="true"] .dropdown,
+html[data-night-mode="true"] .field,
+html[data-night-mode="true"] .check,
+html[data-night-mode="true"] .job,
+html[data-night-mode="true"] .btn,
+html[data-night-mode="true"] input,
+html[data-night-mode="true"] select,
+html[data-night-mode="true"] textarea,
+html[data-night-mode="true"] details summary {
+  background: #111827 !important;
+  color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+
+html[data-night-mode="true"] .accessibility-launcher,
+html[data-night-mode="true"] .badge,
+html[data-night-mode="true"] .count-badge,
+html[data-night-mode="true"] .tag,
+html[data-night-mode="true"] .detail-item,
+html[data-night-mode="true"] .btn-teal,
+html[data-night-mode="true"] .btn-yellow {
+  background: #1d4ed8 !important;
+  color: #f8fafc !important;
+}
+
+html[data-night-mode="true"] .hero {
+  background: #1e293b !important;
+}
+
+html[data-night-mode="true"] .link,
+html[data-night-mode="true"] .label,
+html[data-night-mode="true"] .card-title,
+html[data-night-mode="true"] .accent-title,
+html[data-night-mode="true"] .accent,
+html[data-night-mode="true"] h1,
+html[data-night-mode="true"] h2,
+html[data-night-mode="true"] h3,
+html[data-night-mode="true"] p,
+html[data-night-mode="true"] li,
+html[data-night-mode="true"] .small,
+html[data-night-mode="true"] .hint,
+html[data-night-mode="true"] .meta,
+html[data-night-mode="true"] .count,
+html[data-night-mode="true"] .job-head h3 {
+  color: #f8fafc !important;
+}
+
+html[data-underline-links="true"] a,
+html[data-underline-links="true"] a:link,
+html[data-underline-links="true"] a:visited,
+html[data-underline-links="true"] a:hover,
+html[data-underline-links="true"] a:focus,
+html[data-underline-links="true"] button,
+html[data-underline-links="true"] .btn,
+html[data-underline-links="true"] .link {
   text-decoration: underline !important;
-  text-underline-offset: .18em;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: .2em !important;
 }
 
 html[data-high-contrast="true"] body { background: #fff; color: #000; }

@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apply for a job | Fresh Start Inc.</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="aJ.css" />
+  <script src="../../script.js" defer></script>
+  <script src="aJ.js" defer></script>
+</head>
+<body>
+   <div class="navbar-mount" data-component-url="../../components/navbar/navbar.html"></div>
+  <div data-component-url="../../components/accessibility/accessibility.html"></div>
+
+  <main id="main-content">
+
+    <!-- Hero: text changes with each view (see VIEWS in applyJob.js) -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-tools">
+          <a class="link" href="/index.html" data-i18n="backHome">← Back to home</a>
+          <span class="label" data-i18n="exampleProfile">Example profile</span>
+        </div>
+        <p class="eyebrow" id="heroEyebrow"></p>
+        <h1 id="heroTitle" tabindex="-1"></h1>
+        <p id="heroText"></p>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <ol class="stepper" aria-label="Application steps">
+        <li data-step="1">1. Make it yours</li>
+        <li data-step="2">2. Review together</li>
+        <li data-step="3">3. Ready for what’s next</li>
+      </ol>
+
+      <!-- VIEW: ROLE LIST -->
+      <div class="layout" id="view-list">
+        <aside class="sidebar">
+          <section class="card" aria-labelledby="kitTitle">
+            <h2 class="card-title" id="kitTitle">Your application kit</h2>
+            <p class="big">Taylor Morgan</p>
+            <p class="small">Example profile · Try the choices below</p>
+            <h3 class="label">What you bring</h3>
+            <ul class="plain">
+              <li>Communication</li>
+              <li>Organisation</li>
+              <li>A people-first approach</li>
+            </ul>
+            <p class="accent">Example resume ready to include</p>
+          </section>
+
+          <section class="card card--sky" aria-labelledby="zoneTitle">
+            <h2 class="card-title" id="zoneTitle">Your comfort zone</h2>
+            <p id="zoneText">All workplaces</p>
+            <button class="btn btn-white btn-wide" type="button" data-zone="all" aria-pressed="true">All workplaces</button>
+            <button class="btn btn-white btn-wide" type="button" data-zone="remote" aria-pressed="false">Remote / hybrid</button>
+          </section>
+
+          <section class="card">
+            <h3 class="accent-title">No labels. No pressure.</h3>
+            <p>You do not need to share a diagnosis or explain your background. Interview support is always your choice.</p>
+          </section>
+        </aside>
+
+        <section aria-labelledby="rolesTitle">
+          <h2 id="rolesTitle"></h2>
+          <p class="small">Suggestions for this example profile—not a judgement of what you can do.</p>
+          <div id="roles"></div>
+          <div class="callout">
+            <h3>You do not have to get every word perfect.</h3>
+            <p>Start with a strength. Add what you need. We’ll help you review it.</p>
+          </div>
+        </section>
+      </div>
+
+      <!-- VIEW: STEP 1 -->
+      <div id="view-1" hidden>
+        <div class="layout layout--wide">
+          <div class="stack">
+            <section class="card" aria-labelledby="s1a">
+              <h2 class="card-title" id="s1a"><span class="num">01</span> Your details</h2>
+              <div class="row">
+                <div class="field"><label for="name">Name</label><input id="name" placeholder="Taylor Morgan" autocomplete="name"></div>
+                <div class="field"><label for="email">Email address</label><input id="email" type="email" placeholder="taylor.morgan@example.com" autocomplete="email"></div>
+              </div>
+              <p class="small">Example contact details · No personal data is collected in this practice flow.</p>
+            </section>
+
+            <section class="card" aria-labelledby="s1b">
+              <h2 class="card-title" id="s1b"><span class="num">02</span> Lead with a strength</h2>
+              <div class="strengths" id="strengths"></div>
+              <p class="small">Leading with: <strong class="accent" id="leadWith"></strong></p>
+              <div class="field">
+                <label for="intro">Your introduction</label>
+                <textarea id="intro"></textarea>
+              </div>
+            </section>
+
+            <section class="card card--sky" aria-labelledby="s1c">
+              <h2 class="card-title" id="s1c"><span class="num">03</span> Interview support · Optional</h2>
+              <p>Choose what helps—not a diagnosis. You decide what gets shared.</p>
+              <div class="grid-2" id="supports">
+                <label class="check"><input type="checkbox" name="support" value="Step-free interview venue"> Step-free interview venue</label>
+                <label class="check"><input type="checkbox" name="support" value="Captions or text interview"> Captions or text interview</label>
+                <label class="check"><input type="checkbox" name="support" value="Written questions in advance"> Written questions in advance</label>
+                <label class="check"><input type="checkbox" name="support" value="Extra processing time"> Extra processing time</label>
+              </div>
+              <label class="check"><input type="checkbox" id="shareSupport"> Include these requests with my application</label>
+              <p class="small">Leave this unchecked to keep your choices private. You can ask later.</p>
+            </section>
+          </div>
+
+          <aside class="sidebar">
+            <section class="card card--teal" aria-labelledby="applyingFor">
+              <p class="label" id="applyingFor">You’re applying for</p>
+              <h2 id="s1Title"></h2>
+              <p class="strong" id="s1Company"></p>
+              <p class="small" id="s1Meta"></p>
+            </section>
+            <section class="card">
+              <h2 class="card-title">Your resume</h2>
+              <p>Taylor Morgan.pdf · Example resume</p>
+              <label class="check check--plain"><input type="checkbox" id="includeResume" checked> Include this resume</label>
+              <p class="small">No upload or real document is used here.</p>
+            </section>
+            <section class="card">
+              <h2 class="card-title">Your story is yours.</h2>
+              <p>Lived experience counts. You do not need to disclose a disability or explain your background to describe your strengths.</p>
+            </section>
+            <section class="card">
+              <h2 class="card-title">Before anything is shared</h2>
+              <p>You’ll review your introduction, resume choice and any requests you choose to share. Nothing is sent to an employer in this prototype.</p>
+            </section>
+          </aside>
+        </div>
+        <div class="actions">
+          <button class="btn btn-white" type="button" data-view="list">← Back to my shortlist</button>
+          <button class="btn btn-teal" type="button" data-view="2">Review my application →</button>
+        </div>
+      </div>
+
+      <!-- VIEW: STEP 2 -->
+      <div id="view-2" hidden>
+        <div class="layout layout--wide">
+          <div class="stack">
+            <section class="card" aria-labelledby="s2a">
+              <h2 class="card-title" id="s2a">Your application snapshot</h2>
+              <p class="big" id="s2Title"></p>
+              <p id="s2Company"></p>
+              <h3 class="label">From</h3>
+              <p id="s2From"></p>
+              <h3 class="label">Your introduction</h3>
+              <p id="s2Intro"></p>
+              <p class="accent" id="s2Resume"></p>
+            </section>
+            <section class="card" aria-labelledby="s2b">
+              <h2 class="card-title" id="s2b">Ready when you are</h2>
+              <label class="check check--plain"><input type="checkbox" id="confirm"> I’ve reviewed this example application and understand that it will not be sent to an employer.</label>
+              <p class="error" id="confirmError" role="alert" hidden>Please tick the box to confirm before sending.</p>
+            </section>
+          </div>
+          <aside class="sidebar">
+            <section class="card card--sky">
+              <h2 class="card-title">Interview support</h2>
+              <div id="s2Support"></div>
+              <p class="small">Only requests listed here would be included. No diagnosis is shared.</p>
+            </section>
+            <section class="card">
+              <h2 class="card-title">Take your time.</h2>
+              <p>There’s no countdown here. Go back and change anything that does not sound like you. Your choices stay with this application.</p>
+            </section>
+          </aside>
+        </div>
+        <div class="actions">
+          <button class="btn btn-white" type="button" data-view="1">← Make changes</button>
+          <button class="btn btn-teal" type="button" id="sendBtn">Send practice application →</button>
+        </div>
+      </div>
+
+      <!-- VIEW: STEP 3 -->
+      <div id="view-3" hidden>
+        <div class="layout layout--even">
+          <section class="card" aria-labelledby="s3a">
+            <h2 class="card-title" id="s3a">Practice application complete</h2>
+            <p class="big">That’s your story, ready to go.</p>
+            <p>You prepared an application for:</p>
+            <p class="big" id="s3Title"></p>
+            <p id="s3Company"></p>
+            <p>Nothing has been sent to an employer. This was a safe place to practise, using an example profile and opportunity.</p>
+            <button class="btn btn-teal" type="button" data-view="list">Back to my roles →</button>
+          </section>
+          <aside class="card card--sky" aria-labelledby="s3b">
+            <h2 class="card-title" id="s3b">When you’re ready</h2>
+            <h3><span class="num">01</span> Check the real opportunity</h3>
+            <p>Visit the employer’s official listing and confirm the role is still open.</p>
+            <h3><span class="num">02</span> Ask for what helps</h3>
+            <p>Confirm interview access and request adjustments when it feels right for you.</p>
+            <h3><span class="num">03</span> Keep a copy for yourself</h3>
+            <p>Save your application and note the employer’s next steps.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <strong class="accent">Your skills. Your story. Your next chapter.</strong>
+    <span>Practice flow · Example jobs and profile · Nothing is sent</span>
+  </footer>
+</body>
+</html>
