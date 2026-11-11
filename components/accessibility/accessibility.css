@@ -75,7 +75,7 @@ html { font-size: calc(100% * var(--accessibility-text-scale, 1)); }
 .accessibility-field, .accessibility-option { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 56px; border-top: 1px solid #d8d1c6; font-weight: 700; }
 .accessibility-field select { min-height: 42px; padding: .4rem .5rem; border: 1px solid #6b625b; border-radius: 4px; background: white; color: #171717; font: inherit; }
 .accessibility-option input { width: 24px; height: 24px; accent-color: #3f2a67; }
-.accessibility-tts, .accessibility-reset { width: 100%; min-height: 46px; margin-top: 1rem; border: 2px solid #3f2a67; border-radius: 5px; background: transparent; color: #3f2a67; font: inherit; font-weight: 800; cursor: pointer; }
+.accessibility-tts, .accessibility-reset { width: 100%; min-height: 46px; margin-top: 1rem; border: 2px solid #3f2a67; border-radius: 5px; background: transparent; color: #3f2a67; font: inherit; font-weight: 700; cursor: pointer; }
 .accessibility-tts:hover, .accessibility-reset:hover { background: #3f2a67; color: #fffdf7; }
 .accessibility-status { min-height: 1.4em; color: #3f2a67; font-size: .9rem; }
 
@@ -176,6 +176,30 @@ html[data-night-mode="true"] .meta,
 html[data-night-mode="true"] .count,
 html[data-night-mode="true"] .job-head h3 {
   color: #f8fafc !important;
+}
+
+/* The settings panel keeps its own light theme in night mode so its labels remain legible. */
+html[data-night-mode="true"] body .accessibility-panel,
+html[data-night-mode="true"] body .accessibility-panel * {
+  background-color: #fffdf7 !important;
+  color: #171717 !important;
+  border-color: #6b625b !important;
+}
+html[data-night-mode="true"] body .accessibility-panel__header h2,
+html[data-night-mode="true"] body .accessibility-panel .accessibility-status,
+html[data-night-mode="true"] body .accessibility-panel .accessibility-tts,
+html[data-night-mode="true"] body .accessibility-panel .accessibility-reset {
+  color: #3f2a67 !important;
+}
+html[data-night-mode="true"] body .accessibility-panel select,
+html[data-night-mode="true"] body .accessibility-panel input {
+  background-color: #fff !important;
+  color: #171717 !important;
+}
+html[data-night-mode="true"] body .accessibility-panel .accessibility-tts:hover,
+html[data-night-mode="true"] body .accessibility-panel .accessibility-reset:hover {
+  background-color: #3f2a67 !important;
+  color: #fffdf7 !important;
 }
 
 html[data-underline-links="true"] a,
