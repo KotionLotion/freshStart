@@ -123,6 +123,13 @@ select {
   font-size: .9rem;
 }
 
+/* Make job feature tags readable when night mode sets all list text to white. */
+html[data-night-mode="true"] .tags li {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+
 @media (max-width: 800px) {
   h1 { font-size: 1.9rem; }
   .layout { grid-template-columns: 1fr; }
