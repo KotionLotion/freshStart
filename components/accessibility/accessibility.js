@@ -105,6 +105,8 @@
     const nightMode = root.querySelector("#accessibility-night-mode");
     const underlineLinks = root.querySelector("#accessibility-underline-links");
     const ttsButton = root.querySelector(".accessibility-tts");
+    // Disable the read-aloud control even on pages that still include it in their template.
+    ttsButton?.remove();
     const reset = root.querySelector(".accessibility-reset");
     const status = root.querySelector(".accessibility-status");
     let settings = loadSettings();
@@ -136,10 +138,13 @@
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
-      ttsButton.textContent = formatLanguageText("readPage", settings.language);
+      if (ttsButton) {
+        ttsButton.textContent = formatLanguageText("readPage", settings.language);
+      }
     }
 
     function readPageAloud() {
+      if (!ttsButton) return;
       if (!("speechSynthesis" in window)) {
         announce(formatLanguageText("unavailable", settings.language));
         return;
@@ -263,9 +268,11 @@
       settings.underlineLinks = underlineLinks.checked;
       saveSettings();
     });
-    ttsButton.addEventListener("click", () => {
-      readPageAloud();
-    });
+    if (ttsButton) {
+      ttsButton.addEventListener("click", () => {
+        readPageAloud();
+      });
+    }
     reset.addEventListener("click", () => {
       settings = { ...defaults };
       applySettings();
