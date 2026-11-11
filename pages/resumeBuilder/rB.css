@@ -40,7 +40,7 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
 /* Stepper */
 .stepper {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   border: 1px solid var(--ink);
   background: var(--white);
   padding: 0;
@@ -48,6 +48,7 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
   margin-bottom: 1.5rem;
 }
 .stepper button {
+  min-width: 0;
   font: inherit;
   font-size: .85rem;
   color: inherit;
@@ -57,10 +58,11 @@ h3 { font-size: 1.15rem; margin-bottom: .4rem; }
   padding: .9rem .75rem;
   text-align: left;
   cursor: pointer;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 .stepper button:last-child { border-right: 0; }
-.stepper b { margin-right: .3rem; }
+.stepper b { margin-right: .3rem; white-space: nowrap; }
 .stepper button.is-active { background: var(--yellow); font-weight: 700; outline: 2px solid var(--ink); outline-offset: -2px; }
 
 /* Card + sections */
