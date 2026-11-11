@@ -169,6 +169,52 @@ dialog {
 }
 dialog::backdrop { background: rgb(34 36 31 / .55); }
 
+/* Night-mode contrast for resume controls and links */
+html[data-night-mode="true"] .stepper,
+html[data-night-mode="true"] .stepper button,
+html[data-night-mode="true"] .card,
+html[data-night-mode="true"] .option,
+html[data-night-mode="true"] .check,
+html[data-night-mode="true"] .summary,
+html[data-night-mode="true"] .paper,
+html[data-night-mode="true"] dialog {
+  background-color: #111827 !important;
+  color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+html[data-night-mode="true"] .stepper button.is-active,
+html[data-night-mode="true"] .btn-yellow {
+  background-color: #1d4ed8 !important;
+  color: #fff !important;
+}
+html[data-night-mode="true"] .link,
+html[data-night-mode="true"] .center .link,
+html[data-night-mode="true"] .summary-head .link {
+  color: #bfdbfe !important;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+html[data-night-mode="true"] .btn,
+html[data-night-mode="true"] dialog .btn {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+}
+html[data-night-mode="true"] .btn-yellow,
+html[data-night-mode="true"] dialog .btn-yellow {
+  background-color: #1d4ed8 !important;
+  color: #fff !important;
+}
+html[data-night-mode="true"] input,
+html[data-night-mode="true"] select,
+html[data-night-mode="true"] textarea {
+  background-color: #0b1220 !important;
+  color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+}
+html[data-night-mode="true"] ::placeholder { color: #cbd5e1 !important; opacity: 1; }
+html[data-night-mode="true"] .dropdown summary { background: #1e293b !important; color: #f8fafc !important; }
+
 /* Small screens */
 @media (max-width: 600px) {
   .row, .grid-2 { grid-template-columns: 1fr; }
